@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Game Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Game Hub</h1>
+    <nav>
+      <button class="tab-button active" data-tab="games">Games</button>
+      <button class="tab-button" data-tab="favorites">Favorites</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Games Tab -->
+    <section id="games" class="tab-content active">
+      <div class="tab-title">Games</div>
+      <div class="category">
+        <h3>People Love</h3>
+        <div class="scrollable-game-grid">
+          <!-- Game Cards -->
+          <div class="game-card" data-id="1" data-folder="/paper.io/">
+            <img src="icons/paper.io.png" alt="paper.io">
+            <h4>paper.io</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="2" data-folder="/monkeymart/">
+            <img src="icons/monkeymart.png" alt="monkey mart">
+            <h4>monkey mart</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="3" data-folder="/stickmanmerge/">
+            <img src="icons/stick-merge.png" alt="stickman merge">
+            <h4>stickman merge</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="4" data-folder="/swerve/">
+            <img src="icons/swerve.png" alt="swerve">
+            <h4>swerve</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="5" data-folder="/TinyFishing/">
+            <img src="icons/tinyfishing.png" alt="tiny fishing">
+            <h4>tiny fishing</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="6" data-folder="/subwaysurfers/">
+            <img src="icons/subwaysurfers.jpg" alt="subway surfers">
+            <h4>subway surfers</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="7" data-folder="/krunker/">
+            <img src="icons/krunker.png" alt="krunker">
+            <h4>krunker (won't work for most!)</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="8" data-folder="/geodash/">
+            <img src="icons/geodash.png" alt="geo dash">
+            <h4>geo dash</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="9" data-folder="/stickmanhook/">
+            <img src="icons/stickmanhook.jpg" alt="stickman hook">
+            <h4>stickman hook</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+        </div>
+      </div>
+      <div class="category">
+        <h3>Popular</h3>
+        <div class="scrollable-game-grid">
+          <div class="game-card" data-id="10" data-folder="/dogeminer/">
+            <img src="icons/dogeminer.png" alt="dogeminer">
+            <h4>dogeminer</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="11" data-folder="/basketballio/">
+            <img src="icons/basketbro.jpg" alt="basketbro">
+            <h4>basketbros.io</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="12" data-folder="/cookieclicker/">
+            <img src="icons/cookieclicker.png" alt="cookie clicker">
+            <h4>cookie clicker</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="13" data-folder="/drivemad/">
+            <img src="icons/drivemad.png" alt="drive mad">
+            <h4>drive mad</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="14" data-folder="/awesometanks/">
+            <img src="icons/awesometanks2.png" alt="awesome tanks2">
+            <h4>awesome tanks 2</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="15" data-folder="/flappybird/">
+            <img src="icons/flappybird.png" alt="flappy bird">
+            <h4>flappy bird</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="16" data-folder="/bitlife/">
+            <img src="icons/bitlife.png" alt="bitlife">
+            <h4>bitlife</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+        </div>
+      </div>
+      <div class="category">
+        <h3>Fun</h3>
+        <div class="scrollable-game-grid">
+          <div class="game-card" data-id="17" data-folder="/ovo/">
+            <img src="icons/ovo.png" alt="ovo">
+            <h4>ovo</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="18" data-folder="/fluidsim/">
+            <img src="icons/fluidsim.png" alt="fluid simulation">
+            <h4>fluid simulation</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="19" data-folder="/leveldevil/">
+            <img src="icons/leveldevil.png" alt="level devil">
+            <h4>level devil</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="20" data-folder="/polytrack/">
+            <img src="icons/polytrack.jpg" alt="polytrack">
+            <h4>polytrack</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+          <div class="game-card" data-id="21" data-folder="/fun-game5/">
+            <img src="icons/fun-game5.png" alt="Fun Game 5">
+            <h4>Fun Game 5</h4>
+            <button class="favorite-btn">❤️ Favorite</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Favorites Tab -->
+    <section id="favorites" class="tab-content">
+      <div class="tab-title">in maintenance...</div>
+      <div class="game-grid" id="favorites-grid">
+        <!-- Favorited games will appear here -->
+      </div>
+    </section>
+
+    <!-- Settings Tab -->
+    <section id="settings" class="tab-content">
+      <div class="tab-title">Settings</div>
+      <div class="settings-grid">
+        <!-- Appearance Card -->
+        <div class="setting-card">
+          <h3>Appearance</h3>
+          <div class="appearance-options">
+            <div class="theme-toggle">
+              <label for="theme-toggle">Dark Mode</label>
+              <div class="toggle-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+              </div>
+            </div>
+            <div class="font-size-selector">
+              <label for="font-size">Font Size</label>
+              <select id="font-size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
