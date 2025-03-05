@@ -62,7 +62,7 @@ favoriteButtons.forEach((button) => {
 // Load favorites on page load
 updateFavoritesGrid();
 
-// Redirect to Game Page
+// Redirect to Game Page (Wrapper Logic)
 const gameCards = document.querySelectorAll(".game-card");
 gameCards.forEach((card) => {
   card.addEventListener("click", (e) => {
@@ -71,7 +71,7 @@ gameCards.forEach((card) => {
 
     const folder = card.getAttribute("data-folder");
     if (folder) {
-      window.location.href = `${folder}/index.html`;
+      window.location.href = folder;
     }
   });
 });
