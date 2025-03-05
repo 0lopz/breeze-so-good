@@ -6,41 +6,56 @@
   <title>Game Wrapper</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Wrapper styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden; /* Prevent scrolling on the body */
+    }
+
     .game-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      max-width: 1200px; /* Adjust max width as needed */
       padding: 20px;
     }
 
     .game-container {
-      border: 4px solid var(--button-background);
-      border-radius: var(--border-radius);
-      padding: 10px;
+      border: 8px solid var(--button-background); /* Larger border */
+      border-radius: 20px; /* Rounded corners */
       background-color: var(--card-background);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
       width: 100%;
-      max-width: 800px;
+      overflow: hidden; /* Prevent content from overflowing */
     }
 
     .game-iframe {
       width: 100%;
-      height: 600px;
+      height: 80vh; /* Default height */
       border: none;
-      border-radius: var(--border-radius);
     }
 
     #home-button {
       background-color: var(--button-background);
       color: #fff;
-      border: none; 
-      padding: 0.75rem 1.5rem;
+      border: none;
+      padding: 1rem 2rem;
       cursor: pointer;
-      border-radius: var(--border-radius);
+      border-radius: 12px;
       transition: background-color var(--transition-speed);
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: bold;
       margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     #home-button:hover {
@@ -51,7 +66,7 @@
 <body>
   <div class="game-wrapper">
     <div class="game-container">
-      <iframe src="." class="game-iframe"></iframe>
+      <iframe src="." class="game-iframe" id="game-iframe"></iframe>
     </div>
     <button id="home-button" onclick="window.location.href='index.html'">Home</button>
   </div>
@@ -61,7 +76,18 @@
     const urlParams = new URLSearchParams(window.location.search);
     const gamePath = urlParams.get('game');
     if (gamePath) {
-      document.querySelector('.game-iframe').src = gamePath;
+      const iframe = document.getElementById('game-iframe');
+      iframe.src = gamePath;
+
+      // Dynamically adjust iframe height to fit the game content
+      iframe.onload = () => {
+        const gameDocument = iframe.contentDocument || iframe.contentWindow.document;
+        const gameBody = gameDocument.body;
+        const gameHeight = gameBody.scrollHeight;
+
+        // Set iframe height to match the game content
+        iframe.style.height = `${gameHeight}px`;
+      };
     }
   </script>
 </body>
