@@ -35,7 +35,7 @@
     }
 
     .game-container {
-      border: 8px solid var(--button-background); /* Larger border */
+      border: 8px solid var(--button-background); /* Default border */
       border-radius: 20px; /* Rounded corners */
       background-color: var(--card-background);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
@@ -95,7 +95,7 @@
 </head>
 <body>
   <div class="game-wrapper">
-    <div class="game-container">
+    <div class="game-container" id="game-container">
       <iframe src="." class="game-iframe" id="game-iframe"></iframe>
     </div>
     <button id="home-button" onclick="window.location.href='index.html'">Home</button>
@@ -107,24 +107,28 @@
     const gamePath = urlParams.get('game');
     if (gamePath) {
       const iframe = document.getElementById('game-iframe');
+      const gameContainer = document.getElementById('game-container');
       iframe.src = gamePath;
 
-      // Dynamically adjust iframe height to fit the game content
+      // Dynamically adjust iframe height and border based on game size
       iframe.onload = () => {
         const gameDocument = iframe.contentDocument || iframe.contentWindow.document;
         const gameBody = gameDocument.body;
         const gameHeight = gameBody.scrollHeight;
-
-        // Check if the game has fixed dimensions
         const gameWidth = gameBody.scrollWidth;
         const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
 
-        if (gameWidth > viewportWidth) {
-          // If the game has fixed dimensions, disable scaling
-          iframe.classList.add('fixed-dimensions');
+        // Adjust iframe height to match the game content
+        iframe.style.height = `${gameHeight}px`;
+
+        // Adjust border size based on game dimensions
+        if (gameWidth > viewportWidth || gameHeight > viewportHeight) {
+          // For large games, reduce the border size
+          gameContainer.style.borderWidth = '4px';
         } else {
-          // Set iframe height to match the game content
-          iframe.style.height = `${gameHeight}px`;
+          // For smaller games, use the default border size
+          gameContainer.style.borderWidth = '8px';
         }
       };
     }
