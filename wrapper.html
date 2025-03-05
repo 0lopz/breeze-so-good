@@ -6,10 +6,15 @@
   <title>Game Wrapper</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Wrapper styles */
-    body {
+    /* Reset default styles */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Wrapper styles */
+    body {
       background-color: var(--background-color);
       color: var(--text-color);
       font-family: 'Arial', sans-serif;
@@ -27,7 +32,6 @@
       width: 100%;
       max-width: 1200px; /* Adjust max width as needed */
       padding: 20px;
-      box-sizing: border-box; /* Include padding in width calculation */
     }
 
     .game-container {
@@ -80,6 +84,13 @@
         font-size: 1rem;
       }
     }
+
+    /* Fallback for games with fixed dimensions */
+    .game-iframe.fixed-dimensions {
+      width: 100%;
+      height: 100%;
+      transform: none; /* Disable scaling for fixed-dimension games */
+    }
   </style>
 </head>
 <body>
@@ -104,8 +115,17 @@
         const gameBody = gameDocument.body;
         const gameHeight = gameBody.scrollHeight;
 
-        // Set iframe height to match the game content
-        iframe.style.height = `${gameHeight}px`;
+        // Check if the game has fixed dimensions
+        const gameWidth = gameBody.scrollWidth;
+        const viewportWidth = window.innerWidth;
+
+        if (gameWidth > viewportWidth) {
+          // If the game has fixed dimensions, disable scaling
+          iframe.classList.add('fixed-dimensions');
+        } else {
+          // Set iframe height to match the game content
+          iframe.style.height = `${gameHeight}px`;
+        }
       };
     }
   </script>
