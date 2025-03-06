@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Game Wrapper</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Add Font Awesome for the home icon -->
+  <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Reset default styles */
@@ -25,22 +25,55 @@
       overflow: hidden; /* Prevent scrolling on the body */
     }
 
-    /* Sidebar with Home button */
+    /* Sidebar with toggle arrow */
     .sidebar {
-      width: 57px; /* Slightly wider sidebar */
+      width: 80px; /* Sidebar width when expanded */
       background-color: var(--card-background);
       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 30px; /* Space at the top */
-      transition: width 0.3s ease; /* Smooth transition for hover effect */
+      transition: width 0.3s ease, transform 0.3s ease; /* Smooth transition */
+      position: fixed; /* Fixed position */
+      left: -80px; /* Start closed (hidden) */
+      top: 0;
+      bottom: 0;
+      z-index: 1000; /* Ensure sidebar is above other content */
     }
 
-    .sidebar:hover {
-      width: 70px; /* Expand sidebar on hover */
+    .sidebar.open {
+      left: 0; /* Show sidebar when open */
     }
 
+    /* Sidebar toggle arrow */
+    .sidebar-toggle {
+      background-color: var(--button-background);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      left: 10px; /* Position in the middle-left */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%);
+      z-index: 1001; /* Ensure toggle is above sidebar */
+    }
+
+    .sidebar-toggle:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-50%) scale(1.1); /* Slight scale effect on hover */
+    }
+
+    .sidebar-toggle i {
+      font-size: 1.2rem; /* Icon size */
+    }
+
+    /* Home button */
     #home-button {
       background-color: var(--button-background);
       color: #fff;
@@ -56,6 +89,7 @@
       justify-content: center;
       width: 50px; /* Fixed width for the button */
       height: 50px; /* Fixed height for the button */
+      margin-bottom: 20px; /* Space between buttons */
     }
 
     #home-button:hover {
@@ -87,6 +121,12 @@
         padding-top: 20px; /* Less padding on mobile */
       }
 
+      .sidebar-toggle {
+        padding: 10px;
+        font-size: 1rem;
+        left: 5px; /* Adjust position for mobile */
+      }
+
       #home-button {
         padding: 12px;
         font-size: 1rem;
@@ -101,12 +141,18 @@
   </style>
 </head>
 <body>
-  <!-- Sidebar with Home button -->
-  <div class="sidebar">
+  <!-- Sidebar with toggle arrow -->
+  <div class="sidebar" id="sidebar">
+    <!-- Home button -->
     <button id="home-button" onclick="window.location.href='index.html'">
       <i class="fas fa-home"></i> <!-- Font Awesome home icon -->
     </button>
   </div>
+
+  <!-- Sidebar toggle arrow -->
+  <button class="sidebar-toggle" id="sidebar-toggle">
+    <i class="fas fa-arrow-right"></i> <!-- Arrow icon -->
+  </button>
 
   <!-- Game container -->
   <div class="game-container">
@@ -131,6 +177,39 @@
         iframe.style.height = `${gameHeight}px`;
       };
     }
+
+    // Load saved settings
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedFontSize = localStorage.getItem('fontSize') || 'medium';
+    const sidebarEnabled = localStorage.getItem('sidebarEnabled') === 'true';
+
+    // Apply saved theme
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Apply saved font size
+    document.body.style.fontSize = savedFontSize === 'small' ? '14px' : savedFontSize === 'medium' ? '16px' : '18px';
+
+    // Apply sidebar visibility
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+
+    if (!sidebarEnabled) {
+      sidebar.style.display = 'none';
+      sidebarToggle.style.display = 'none';
+    }
+
+    // Sidebar toggle functionality
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      const arrowIcon = sidebarToggle.querySelector('i');
+      if (sidebar.classList.contains('open')) {
+        arrowIcon.classList.remove('fa-arrow-right');
+        arrowIcon.classList.add('fa-arrow-left');
+      } else {
+        arrowIcon.classList.remove('fa-arrow-left');
+        arrowIcon.classList.add('fa-arrow-right');
+      }
+    });
   </script>
 </body>
 </html>

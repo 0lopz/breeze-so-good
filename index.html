@@ -135,13 +135,12 @@
             <h4>driftboss</h4>
             <button class="favorite-btn">❤️ Favorite</button>
           </div>
-          
           <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/idlebreakout/">
             <img src="icons/idlebreakout.png" alt="idle breakout">
             <h4>idle-breakout</h4>
             <button class="favorite-btn">❤️ Favorite</button>
           </div>
-          <div class="game-card" data-id="20" data-folder="/wrapper.html?game=/smallworldcup/">
+          <div class="game-card" data-id="22" data-folder="/wrapper.html?game=/smallworldcup/">
             <img src="icons/smallworldcup.jpeg" alt="smallworldcup">
             <h4>a small worldcup</h4>
             <button class="favorite-btn">❤️ Favorite</button>
@@ -162,7 +161,19 @@
     <section id="devlogs" class="tab-content">
       <div class="tab-title">Devlogs</div>
       <div class="devlogs-content">
-        
+        <div class="devlog-entry">
+          <h3>Update 1.2.0</h3>
+          <p> [+] Minor UI advances</p>
+          <p> [+] Minor UI changes on the main menu</p>
+          <p> [-] Removed home button on games for testing</p>
+          <p> [+] Added more options in settings</p>
+          <p> [-] Removed sidebar on the games for testing</p>
+          <p> [+] Made the website compatible for more devices</p>
+          <p> [+] Fixed options in settings</p>
+          <p> [+] Fixed some games</p>
+          <p> [!] Some games may cutoff on mobile</p>
+          <small>Posted on: 03-05-2025</small>
+        </div>
         <div class="devlog-entry">
           <h3>Update 1.1.0</h3>
           <p> [+] Added a new "devlogs" tab</p>
@@ -172,39 +183,49 @@
           <p> [+] Minor bug fixes</p>
           <small>Posted on: 03-04-2025</small>
         </div>
-        <!-- Add more devlog entries as needed -->
       </div>
     </section>
 
     <!-- Settings Tab -->
     <section id="settings" class="tab-content">
       <div class="tab-title">Settings</div>
-      <div class="settings-grid">
-        <!-- Appearance Card -->
-        <div class="setting-card">
+      <div class="settings-content">
+        <!-- Appearance Settings -->
+        <div class="settings-card">
           <h3>Appearance</h3>
-          <div class="appearance-options">
-            <div class="theme-toggle">
-              <label for="theme-toggle">Dark Mode</label>
-              <div class="toggle-switch">
+          <div class="setting-option">
+            <p>Customize the look and feel of the website.</p>
+            <div class="setting-item">
+              <label for="theme-toggle">Enable Dark Mode</label>
+              <label class="switch">
                 <input type="checkbox" id="theme-toggle">
                 <span class="slider"></span>
-              </div>
+              </label>
             </div>
-            <div class="font-size-selector">
-              <label for="font-size">Font Size</label>
-              <select id="font-size">
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-              </select>
+          </div>
+        </div>
+
+        <!-- Panic Button Settings -->
+        <div class="settings-card">
+          <h3>Panic Button</h3>
+          <div class="setting-option">
+            <p>Set a keybind to quickly navigate to a safe site.</p>
+            <div class="setting-item">
+              <label for="panic-url">Enter URL:</label>
+              <input type="text" id="panic-url" placeholder="https://example.com" value="https://youtube.com">
             </div>
+            <div class="setting-item">
+              <label for="panic-key">Bind Key:</label>
+              <input type="text" id="panic-key" readonly placeholder="Press any key" value="m">
+            </div>
+            <button id="save-panic-button">Save Panic Button</button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Include script.js -->
   <script src="script.js"></script>
 </body>
 </html>

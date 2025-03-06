@@ -76,29 +76,54 @@ gameCards.forEach((card) => {
   });
 });
 
-// Light/Dark Mode Toggle
+// Light/Dark Mode Toggle Logic
 const themeToggle = document.getElementById("theme-toggle");
-const currentTheme = localStorage.getItem("theme") || "dark";
+const savedTheme = localStorage.getItem("theme") || "dark";
 
-// Set initial theme
-document.documentElement.setAttribute("data-theme", currentTheme);
-themeToggle.checked = currentTheme === "light";
+// Set the initial theme
+document.documentElement.setAttribute("data-theme", savedTheme);
+themeToggle.checked = savedTheme === "dark";
 
+// Toggle theme on switch change
 themeToggle.addEventListener("change", () => {
-  const newTheme = themeToggle.checked ? "light" : "dark";
+  const newTheme = themeToggle.checked ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
 });
 
-// Font Size Selector
-const fontSizeSelect = document.getElementById("font-size");
-const savedFontSize = localStorage.getItem("fontSize") || "medium";
+// Panic Button Logic
+const panicUrlInput = document.getElementById("panic-url");
+const panicKeyInput = document.getElementById("panic-key");
+const savePanicButton = document.getElementById("save-panic-button");
 
-fontSizeSelect.value = savedFontSize;
-document.body.style.fontSize = savedFontSize === "small" ? "14px" : savedFontSize === "medium" ? "16px" : "18px";
+let panicUrl = localStorage.getItem("panicUrl") || "https://youtube.com";
+let panicKey = localStorage.getItem("panicKey") || "m";
 
-fontSizeSelect.addEventListener("change", () => {
-  const newSize = fontSizeSelect.value;
-  document.body.style.fontSize = newSize === "small" ? "14px" : newSize === "medium" ? "16px" : "18px";
-  localStorage.setItem("fontSize", newSize);
+// Load saved panic button settings
+panicUrlInput.value = panicUrl;
+panicKeyInput.value = panicKey;
+
+// Listen for keypress to bind panic key
+panicKeyInput.addEventListener("click", () => {
+  panicKeyInput.placeholder = "Press any key...";
+  document.addEventListener("keydown", (e) => {
+    panicKey = e.key;
+    panicKeyInput.value = panicKey;
+    document.removeEventListener("keydown", this);
+  });
+});
+
+// Save panic button settings
+savePanicButton.addEventListener("click", () => {
+  panicUrl = panicUrlInput.value.trim();
+  localStorage.setItem("panicUrl", panicUrl);
+  localStorage.setItem("panicKey", panicKey);
+  alert("Panic button settings saved!");
+});
+
+// Trigger panic button
+document.addEventListener("keydown", (e) => {
+  if (e.key === panicKey && panicUrl) {
+    window.location.href = panicUrl;
+  }
 });
