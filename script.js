@@ -127,3 +127,18 @@ document.addEventListener("keydown", (e) => {
     window.location.href = panicUrl;
   }
 });
+
+// King Von Mode Toggle Logic
+const kingVonModeToggle = document.getElementById("king-von-mode");
+const savedKingVonMode = localStorage.getItem("kingVonMode") === "true";
+
+// Set the initial King Von Mode
+document.body.classList.toggle("king-von-mode", savedKingVonMode);
+kingVonModeToggle.checked = savedKingVonMode;
+
+// Toggle King Von Mode on switch change
+kingVonModeToggle.addEventListener("change", () => {
+  const isKingVonMode = kingVonModeToggle.checked;
+  document.body.classList.toggle("king-von-mode", isKingVonMode);
+  localStorage.setItem("kingVonMode", isKingVonMode);
+});
