@@ -109,49 +109,16 @@
       border: 2px solid #000; /* Smaller border */
       border-radius: 8px; /* Optional: Add rounded corners */
       margin: 20px auto; /* Center the container with a small margin */
-      height: 80vh; /* Set height to 80% of the viewport height */
-      width: 90vw; /* Set width to 90% of the viewport width */
-      max-width: 800px; /* Optional: Set a maximum width for larger screens */
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative; /* For positioning the iframe */
     }
 
     .game-iframe {
       width: 100%;
       height: 100%; /* Full height of the container */
       border: none;
-    }
-
-    /* Responsive design for mobile devices */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 60px; /* Smaller sidebar for mobile */
-        padding-top: 20px; /* Less padding on mobile */
-      }
-
-      .sidebar-toggle {
-        padding: 10px;
-        font-size: 1rem;
-        left: 5px; /* Adjust position for mobile */
-      }
-
-      #home-button {
-        padding: 12px;
-        font-size: 1rem;
-        width: 40px; /* Smaller button for mobile */
-        height: 40px; /* Smaller button for mobile */
-      }
-
-      #home-button i {
-        font-size: 1.2rem; /* Smaller icon for mobile */
-      }
-
-      .game-container {
-        margin: 10px auto; /* Smaller margin on mobile */
-        height: 70vh; /* Adjust height for mobile */
-        width: 95vw; /* Adjust width for mobile */
-      }
     }
   </style>
 </head>
@@ -182,14 +149,31 @@
       const iframe = document.getElementById('game-iframe');
       iframe.src = gamePath;
 
-      // Dynamically adjust iframe height to fit the game content
+      // Dynamically adjust iframe size to fit the game content
       iframe.onload = () => {
         const gameDocument = iframe.contentDocument || iframe.contentWindow.document;
         const gameBody = gameDocument.body;
+        const gameWidth = gameBody.scrollWidth;
         const gameHeight = gameBody.scrollHeight;
 
-        // Set iframe height to match the game content
-        iframe.style.height = `${gameHeight}px`;
+        // Calculate aspect ratio
+        const aspectRatio = gameWidth / gameHeight;
+
+        // Set container size based on aspect ratio
+        const container = document.querySelector('.game-container');
+        const maxWidth = window.innerWidth * 0.9; // 90% of viewport width
+        const maxHeight = window.innerHeight * 0.8; // 80% of viewport height
+
+        let containerWidth = maxWidth;
+        let containerHeight = containerWidth / aspectRatio;
+
+        if (containerHeight > maxHeight) {
+          containerHeight = maxHeight;
+          containerWidth = containerHeight * aspectRatio;
+        }
+
+        container.style.width = `${containerWidth}px`;
+        container.style.height = `${containerHeight}px`;
       };
     }
 
