@@ -39,6 +39,7 @@
       z-index: 1000; /* Ensure header is above other content */
       position: sticky; /* Make the header sticky */
       top: 0; /* Stick to the top of the viewport */
+      height: 60px; /* Fixed height for the header */
     }
 
     .header h1 {
@@ -72,6 +73,7 @@
       border: 2px solid #000; /* Smaller border */
       border-radius: 8px; /* Optional: Add rounded corners */
       margin: 20px; /* Margin around the container */
+      margin-top: 80px; /* Add margin to account for the header height */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -113,7 +115,7 @@
 
         // Set the container to fill the available space
         container.style.width = `${window.innerWidth - 40}px`; // Account for margins
-        container.style.height = `${window.innerHeight - 100}px`; // Account for header and margins
+        container.style.height = `${window.innerHeight - 140}px`; // Account for header and margins
 
         // Ensure the iframe fills the container
         iframe.style.width = '100%';
