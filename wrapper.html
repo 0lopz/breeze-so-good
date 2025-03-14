@@ -21,84 +21,45 @@
       color: var(--text-color);
       font-family: 'Arial', sans-serif;
       display: flex;
-      min-height: 100vh;
+      flex-direction: column;
+      height: 100vh; /* Use full viewport height */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
       overflow: hidden; /* Prevent scrolling on the body */
     }
 
-    /* Sidebar with toggle arrow */
-    .sidebar {
-      width: 80px; /* Sidebar width when expanded */
-      background-color: var(--card-background);
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    /* Header with Wind Games label and settings icon */
+    .header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      padding-top: 30px; /* Space at the top */
-      transition: width 0.3s ease, transform 0.3s ease; /* Smooth transition */
-      position: fixed; /* Fixed position */
-      left: -80px; /* Start closed (hidden) */
-      top: 0;
-      bottom: 0;
-      z-index: 1000; /* Ensure sidebar is above other content */
+      padding: 10px 20px;
+      background-color: var(--card-background);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Ensure header is above other content */
     }
 
-    .sidebar.open {
-      left: 0; /* Show sidebar when open */
+    .header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
-    /* Sidebar toggle arrow */
-    .sidebar-toggle {
+    .settings-icon {
       background-color: var(--button-background);
       color: #fff;
       border: none;
-      padding: 12px;
+      padding: 10px;
       cursor: pointer;
       border-radius: 50%;
       transition: background-color 0.3s ease, transform 0.2s ease;
       font-size: 1.2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      left: 10px; /* Position in the middle-left */
-      top: 50%; /* Center vertically */
-      transform: translateY(-50%);
-      z-index: 1001; /* Ensure toggle is above sidebar */
     }
 
-    .sidebar-toggle:hover {
-      background-color: var(--button-hover);
-      transform: translateY(-50%) scale(1.1); /* Slight scale effect on hover */
-    }
-
-    .sidebar-toggle i {
-      font-size: 1.2rem; /* Icon size */
-    }
-
-    /* Home button */
-    #home-button {
-      background-color: var(--button-background);
-      color: #fff;
-      border: none;
-      padding: 15px;
-      cursor: pointer;
-      border-radius: 12px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px; /* Fixed width for the button */
-      height: 50px; /* Fixed height for the button */
-      margin-bottom: 20px; /* Space between buttons */
-    }
-
-    #home-button:hover {
+    .settings-icon:hover {
       background-color: var(--button-hover);
       transform: scale(1.1); /* Slight scale effect on hover */
-    }
-
-    #home-button i {
-      font-size: 1.5rem; /* Icon size */
     }
 
     /* Game container */
@@ -108,7 +69,7 @@
       overflow: hidden; /* Prevent content from overflowing */
       border: 2px solid #000; /* Smaller border */
       border-radius: 8px; /* Optional: Add rounded corners */
-      margin: 20px auto; /* Center the container with a small margin */
+      margin: 20px; /* Margin around the container */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -116,25 +77,20 @@
     }
 
     .game-iframe {
-      width: 100%;
-      height: 100%; /* Full height of the container */
+      width: 100%; /* Fill the entire width of the container */
+      height: 100%; /* Fill the entire height of the container */
       border: none;
     }
   </style>
 </head>
 <body>
-  <!-- Sidebar with toggle arrow -->
-  <div class="sidebar" id="sidebar">
-    <!-- Home button -->
-    <button id="home-button" onclick="window.location.href='index.html'">
-      <i class="fas fa-home"></i> <!-- Font Awesome home icon -->
+  <!-- Header with Wind Games label and settings icon -->
+  <div class="header">
+    <h1>Wind Games</h1>
+    <button class="settings-icon" onclick="window.location.href='index.html#settings'">
+      <i class="fas fa-cog"></i> <!-- Font Awesome settings icon -->
     </button>
   </div>
-
-  <!-- Sidebar toggle arrow -->
-  <button class="sidebar-toggle" id="sidebar-toggle">
-    <i class="fas fa-arrow-right"></i> <!-- Arrow icon -->
-  </button>
 
   <!-- Game container -->
   <div class="game-container">
@@ -149,66 +105,29 @@
       const iframe = document.getElementById('game-iframe');
       iframe.src = gamePath;
 
-      // Dynamically adjust iframe size to fit the game content
+      // Dynamically adjust iframe size to fill the container
       iframe.onload = () => {
-        const gameDocument = iframe.contentDocument || iframe.contentWindow.document;
-        const gameBody = gameDocument.body;
-        const gameWidth = gameBody.scrollWidth;
-        const gameHeight = gameBody.scrollHeight;
-
-        // Calculate aspect ratio
-        const aspectRatio = gameWidth / gameHeight;
-
-        // Set container size based on aspect ratio
         const container = document.querySelector('.game-container');
-        const maxWidth = window.innerWidth * 0.9; // 90% of viewport width
-        const maxHeight = window.innerHeight * 0.8; // 80% of viewport height
 
-        let containerWidth = maxWidth;
-        let containerHeight = containerWidth / aspectRatio;
+        // Set the container to fill the available space
+        container.style.width = `${window.innerWidth - 40}px`; // Account for margins
+        container.style.height = `${window.innerHeight - 100}px`; // Account for header and margins
 
-        if (containerHeight > maxHeight) {
-          containerHeight = maxHeight;
-          containerWidth = containerHeight * aspectRatio;
-        }
-
-        container.style.width = `${containerWidth}px`;
-        container.style.height = `${containerHeight}px`;
+        // Ensure the iframe fills the container
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
       };
     }
 
     // Load saved settings
     const savedTheme = localStorage.getItem('theme') || 'dark';
     const savedFontSize = localStorage.getItem('fontSize') || 'medium';
-    const sidebarEnabled = localStorage.getItem('sidebarEnabled') === 'true';
 
     // Apply saved theme
     document.documentElement.setAttribute('data-theme', savedTheme);
 
     // Apply saved font size
     document.body.style.fontSize = savedFontSize === 'small' ? '14px' : savedFontSize === 'medium' ? '16px' : '18px';
-
-    // Apply sidebar visibility
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-
-    if (!sidebarEnabled) {
-      sidebar.style.display = 'none';
-      sidebarToggle.style.display = 'none';
-    }
-
-    // Sidebar toggle functionality
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      const arrowIcon = sidebarToggle.querySelector('i');
-      if (sidebar.classList.contains('open')) {
-        arrowIcon.classList.remove('fa-arrow-right');
-        arrowIcon.classList.add('fa-arrow-left');
-      } else {
-        arrowIcon.classList.remove('fa-arrow-left');
-        arrowIcon.classList.add('fa-arrow-right');
-      }
-    });
   </script>
 </body>
 </html>
