@@ -3,196 +3,305 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wind</title>
+  <title>Wind Games</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
   <!-- King Von GIF Container -->
   <div id="king-von-gif-container"></div>
 
   <header>
-    <h1>Wind Games</h1>
-    <nav>
-      <button class="tab-button active" data-tab="games">Games</button>
-      <button class="tab-button" data-tab="favorites">Favorites</button>
-      <button class="tab-button" data-tab="devlogs">Devlogs</button>
-      <button class="tab-button" data-tab="settings">Settings</button>
-    </nav>
+    <div class="header-content">
+      <h1>Wind Games</h1>
+      <nav>
+        <button class="tab-button active" data-tab="games">Games</button>
+        <button class="tab-button" data-tab="favorites">Favorites</button>
+        <button class="tab-button" data-tab="devlogs">Devlogs</button>
+        <button class="tab-button" data-tab="settings">Settings</button>
+      </nav>
+    </div>
   </header>
 
   <main>
     <!-- Games Tab -->
     <section id="games" class="tab-content active">
       <div class="tab-title">Games</div>
+
+      <!-- Popular Games Section -->
       <div class="category">
-        <h3>Games</h3>
-        <div class="scrollable-game-grid">
-          <!-- Game Cards -->
+        <h3>Popular Games</h3>
+        <div class="game-grid">
           <div class="game-card" data-id="1" data-folder="/wrapper.html?game=/paper.io/">
-            <img src="icons/paper.io.png" alt="paper.io">
-            <h4>paper.io</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/paper.io.png" alt="paper.io">
+            </div>
+            <div class="game-card-content">
+              <h4>Paper.io</h4>
+              <p>Claim territory and dominate the map!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="2" data-folder="/wrapper.html?game=/monkeymart/">
-            <img src="icons/monkeymart.png" alt="monkey mart">
-            <h4>monkey mart </h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/monkeymart.png" alt="monkey mart">
+            </div>
+            <div class="game-card-content">
+              <h4>Monkey Mart</h4>
+              <p>Run a bustling supermarket with your monkey friends!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="3" data-folder="/wrapper.html?game=/stickmanmerge/">
-            <img src="icons/stick-merge.png" alt="stickman merge">
-            <h4>stickman merge</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/stick-merge.png" alt="stickman merge">
+            </div>
+            <div class="game-card-content">
+              <h4>Stickman Merge</h4>
+              <p>Merge stickmen to create powerful warriors!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="4" data-folder="/wrapper.html?game=/swerve/">
-            <img src="icons/swerve.png" alt="swerve">
-            <h4>swerve</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/swerve.png" alt="swerve">
+            </div>
+            <div class="game-card-content">
+              <h4>Swerve</h4>
+              <p>Navigate through obstacles and survive!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="5" data-folder="/wrapper.html?game=/tinyfishing/">
-            <img src="icons/tinyfishing.png" alt="tiny fishing">
-            <h4>tiny fishing</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/tinyfishing.png" alt="tiny fishing">
+            </div>
+            <div class="game-card-content">
+              <h4>Tiny Fishing</h4>
+              <p>Catch fish and upgrade your gear!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="6" data-folder="/wrapper.html?game=/subwaysurfers/">
-            <img src="icons/subwaysurfers.jpg" alt="subway surfers">
-            <h4>subway surfers</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/subwaysurfers.jpg" alt="subway surfers">
+            </div>
+            <div class="game-card-content">
+              <h4>Subway Surfers</h4>
+              <p>Dodge trains and collect coins!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Action Games Section -->
+      <div class="category">
+        <h3>Action Games</h3>
+        <div class="game-grid">
           <div class="game-card" data-id="7" data-folder="/wrapper.html?game=/krunker/">
-            <img src="icons/krunker.png" alt="krunker">
-            <h4>krunker (won't work for most!)</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/krunker.png" alt="krunker">
+            </div>
+            <div class="game-card-content">
+              <h4>Krunker</h4>
+              <p>Fast-paced multiplayer FPS action!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="8" data-folder="/wrapper.html?game=/geodash/">
-            <img src="icons/geodash.png" alt="geo dash">
-            <h4>geo dash</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/geodash.png" alt="geo dash">
+            </div>
+            <div class="game-card-content">
+              <h4>Geo Dash</h4>
+              <p>Jump and dash through challenging levels!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="9" data-folder="/wrapper.html?game=/stickmanhook/">
-            <img src="icons/stickmanhook.jpg" alt="stickman hook">
-            <h4>stickman hook</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/stickmanhook.jpg" alt="stickman hook">
+            </div>
+            <div class="game-card-content">
+              <h4>Stickman Hook</h4>
+              <p>Swing through levels with your stickman!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
+          </div>
+          <div class="game-card" data-id="10" data-folder="/wrapper.html?game=/drivemad/">
+            <div class="game-card-image">
+              <img src="icons/drivemad.png" alt="drive mad">
+            </div>
+            <div class="game-card-content">
+              <h4>Drive Mad</h4>
+              <p>Race through crazy tracks!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
+          </div>
+          <div class="game-card" data-id="11" data-folder="/wrapper.html?game=/awesometanks/">
+            <div class="game-card-image">
+              <img src="icons/awesometanks2.png" alt="awesome tanks2">
+            </div>
+            <div class="game-card-content">
+              <h4>Awesome Tanks 2</h4>
+              <p>Battle with tanks in this action-packed game!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
+          </div>
+          <div class="game-card" data-id="12" data-folder="/wrapper.html?game=/gunspin/">
+            <div class="game-card-image">
+              <img src="icons/gunspin.png" alt="gun spin">
+            </div>
+            <div class="game-card-content">
+              <h4>Gun Spin</h4>
+              <p>Spin your gun and shoot targets!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Simulation Games Section -->
       <div class="category">
-        <h3>Games</h3>
-        <div class="scrollable-game-grid">
-          <div class="game-card" data-id="10" data-folder="/wrapper.html?game=/dogeminer/">
-            <img src="icons/dogeminer.png" alt="dogeminer">
-            <h4>dogeminer</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+        <h3>Simulation Games</h3>
+        <div class="game-grid">
+          <div class="game-card" data-id="13" data-folder="/wrapper.html?game=/dogeminer/">
+            <div class="game-card-image">
+              <img src="icons/dogeminer.png" alt="dogeminer">
+            </div>
+            <div class="game-card-content">
+              <h4>Dogeminer</h4>
+              <p>Mine Dogecoins and build your empire!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="11" data-folder="/wrapper.html?game=/basketballio/">
-            <img src="icons/basketbro.jpg" alt="basketbro">
-            <h4>basketbros.io</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="14" data-folder="/wrapper.html?game=/cookieclicker/">
+            <div class="game-card-image">
+              <img src="icons/cookieclicker.png" alt="cookie clicker">
+            </div>
+            <div class="game-card-content">
+              <h4>Cookie Clicker</h4>
+              <p>Bake cookies and build your empire!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="12" data-folder="/wrapper.html?game=/cookieclicker/">
-            <img src="icons/cookieclicker.png" alt="cookie clicker">
-            <h4>cookie clicker</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="13" data-folder="/wrapper.html?game=/drivemad/">
-            <img src="icons/drivemad.png" alt="drive mad">
-            <h4>drive mad</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="14" data-folder="/wrapper.html?game=/awesometanks/">
-            <img src="icons/awesometanks2.png" alt="awesome tanks2">
-            <h4>awesome tanks 2</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="15" data-folder="/wrapper.html?game=/flappybird/">
-            <img src="icons/flappybird.png" alt="flappy bird">
-            <h4>flappy bird</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="15" data-folder="/wrapper.html?game=/fluidsim/">
+            <div class="game-card-image">
+              <img src="icons/fluidsim.png" alt="fluid simulation">
+            </div>
+            <div class="game-card-content">
+              <h4>Fluid Simulation</h4>
+              <p>Create and play with fluid dynamics!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="16" data-folder="/wrapper.html?game=/bitlife/">
-            <img src="icons/bitlife.png" alt="bitlife">
-            <h4>bitlife</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/bitlife.png" alt="bitlife">
+            </div>
+            <div class="game-card-content">
+              <h4>Bitlife</h4>
+              <p>Live your virtual life!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Arcade Games Section -->
       <div class="category">
-        <h3>Games</h3>
-        <div class="scrollable-game-grid">
-          <div class="game-card" data-id="17" data-folder="/wrapper.html?game=/ovo/">
-            <img src="icons/ovo.png" alt="ovo">
-            <h4>ovo</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+        <h3>Arcade Games</h3>
+        <div class="game-grid">
+          <div class="game-card" data-id="17" data-folder="/wrapper.html?game=/flappybird/">
+            <div class="game-card-image">
+              <img src="icons/flappybird.png" alt="flappy bird">
+            </div>
+            <div class="game-card-content">
+              <h4>Flappy Bird</h4>
+              <p>Flap your way through obstacles!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="18" data-folder="/wrapper.html?game=/fluidsim/">
-            <img src="icons/fluidsim.png" alt="fluid simulation">
-            <h4>fluid simulation</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="18" data-folder="/wrapper.html?game=/ovo/">
+            <div class="game-card-image">
+              <img src="icons/ovo.png" alt="ovo">
+            </div>
+            <div class="game-card-content">
+              <h4>Ovo</h4>
+              <p>Jump and survive in this fast-paced game!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="19" data-folder="/wrapper.html?game=/leveldevil/">
-            <img src="icons/leveldevil.png" alt="level devil">
-            <h4>level devil</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/leveldevil.png" alt="level devil">
+            </div>
+            <div class="game-card-content">
+              <h4>Level Devil</h4>
+              <p>Challenge yourself with devilish levels!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="20" data-folder="/wrapper.html?game=/driftboss/">
-            <img src="icons/DriftBoss.jpg" alt="driftboss">
-            <h4>driftboss</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/DriftBoss.jpg" alt="driftboss">
+            </div>
+            <div class="game-card-content">
+              <h4>Drift Boss</h4>
+              <p>Drift through challenging tracks!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
           <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/idlebreakout/">
-            <img src="icons/idlebreakout.png" alt="idle breakout">
-            <h4>idle-breakout</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+            <div class="game-card-image">
+              <img src="icons/idlebreakout.png" alt="idle breakout">
+            </div>
+            <div class="game-card-content">
+              <h4>Idle Breakout</h4>
+              <p>Break bricks and upgrade your ball!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/escaperoad/">
-            <img src="icons/escape-road.png" alt="idle breakout">
-            <h4>escape road</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="22" data-folder="/wrapper.html?game=/escaperoad/">
+            <div class="game-card-image">
+              <img src="icons/escape-road.png" alt="escape road">
+            </div>
+            <div class="game-card-content">
+              <h4>Escape Road</h4>
+              <p>Escape the road and survive!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/gunspin/">
-            <img src="icons/gunspin.png" alt="idle breakout">
-            <h4>gun spin</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="23" data-folder="/wrapper.html?game=/surviverace/">
+            <div class="game-card-image">
+              <img src="icons/survival-race.jpg" alt="survival race">
+            </div>
+            <div class="game-card-content">
+              <h4>Survival Race</h4>
+              <p>Race to survive in this intense game!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/surviverace/">
-            <img src="icons/survival-race.jpg" alt="idle breakout">
-            <h4>survival race</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="24" data-folder="/wrapper.html?game=/tombofmask/">
+            <div class="game-card-image">
+              <img src="icons/tombofthemask.png" alt="tomb of the mask">
+            </div>
+            <div class="game-card-content">
+              <h4>Tomb of the Mask</h4>
+              <p>Explore the tomb and find treasures!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
-          <div class="game-card" data-id="21" data-folder="/wrapper.html?game=/tombofmask/">
-            <img src="icons/tombofthemask.png" alt="idle breakout">
-            <h4>tomb of the mask</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="22" data-folder="/wrapper.html?game=/smallworldcup/">
-            <img src="icons/smallworldcup.jpeg" alt="smallworldcup">
-            <h4>a small worldcup</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-        </div>
-      </div>
-      <!-- New Section: Action -->
-      <div class="category">
-        <h3>Games</h3>
-        <div class="scrollable-game-grid">
-          <div class="game-card" data-id="23" data-folder="/wrapper.html?game=/comin soon/">
-            <img src="icons/comin soon.png" alt="comin soon">
-            <h4>comin soon</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="24" data-folder="/wrapper.html?game=/actiongame2/">
-            <img src="icons/comin soon.png" alt="comin soon">
-            <h4>comin soon</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="25" data-folder="/wrapper.html?game=/actiongame3/">
-            <img src="icons/comin soon.png" alt="comin soon">
-            <h4>comin soon</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
-          </div>
-          <div class="game-card" data-id="26" data-folder="/wrapper.html?game=/actiongame4/">
-            <img src="icons/comin soon.png" alt="comin soon">
-            <h4>comin soon</h4>
-            <button class="favorite-btn">❤️ Favorite</button>
+          <div class="game-card" data-id="25" data-folder="/wrapper.html?game=/smallworldcup/">
+            <div class="game-card-image">
+              <img src="icons/smallworldcup.jpeg" alt="smallworldcup">
+            </div>
+            <div class="game-card-content">
+              <h4>A Small World Cup</h4>
+              <p>Play soccer in a small world!</p>
+              <button class="favorite-btn">❤️ Add to Favorites</button>
+            </div>
           </div>
         </div>
       </div>
@@ -200,7 +309,7 @@
 
     <!-- Favorites Tab -->
     <section id="favorites" class="tab-content">
-      <div class="tab-title">in maintenance...</div>
+      <div class="tab-title">Favorites</div>
       <div class="game-grid" id="favorites-grid">
         <!-- Favorited games will appear here -->
       </div>
@@ -209,56 +318,13 @@
     <!-- Devlogs Tab -->
     <section id="devlogs" class="tab-content">
       <div class="tab-title">Devlogs</div>
-      
       <div class="devlogs-content">
         <div class="devlog-entry">
           <h3>Update 1.6.0</h3>
-          <p> [+] fixed all games</p>
-          
+          <p> [+] Fixed all games</p>
           <small>Posted on: 03-13-2025</small>
         </div>
-        <div class="devlog-entry">
-          <h3>Update 1.5.0</h3>
-          <p> [+] Added way better mobile support</p>
-          <p> [+] fixed some games</p>
-          <p> [+] added new border around games</p>
-          <p> [+] added new games</p>
-          <small>Posted on: 03-12-2025</small>
-        </div>
-        <div class="devlog-entry">
-          <h3>Update 1.4.0</h3>
-          <p> [+] Added more games</p>
-          <p> [+] Added a small border on games</p>
-          <p> [+] Added more mobile support</p>
-          <small>Posted on: 03-10-2025</small>
-        </div>
-        <div class="devlog-entry">
-          <h3>Update 1.3.0</h3>
-          <p> [+] Added king von mode</p>
-          <small>Posted on: 03-07-2025</small>
-        </div>
-        <div class="devlog-entry">
-          <h3>Update 1.2.0</h3>
-          <p> [+] Minor UI advances</p>
-          <p> [+] Minor UI changes on the main menu</p>
-          <p> [-] Removed home button on games for testing</p>
-          <p> [+] Added more options in settings</p>
-          <p> [-] Removed sidebar on the games for testing</p>
-          <p> [+] Made the website compatible for more devices</p>
-          <p> [+] Fixed options in settings</p>
-          <p> [+] Fixed some games</p>
-          <p> [!] Some games may cutoff on mobile</p>
-          <small>Posted on: 03-05-2025</small>
-        </div>
-        <div class="devlog-entry">
-          <h3>Update 1.1.0</h3>
-          <p> [+] Added a new "devlogs" tab</p>
-          <p> [+] Fixxed tinyfishing</p>
-          <p> [+] Added some new games</p>
-          <p> [+] Added monkeymart mobile support</p>
-          <p> [+] Minor bug fixes</p>
-          <small>Posted on: 03-04-2025</small>
-        </div>
+        <!-- Add more devlog entries here -->
       </div>
     </section>
 
@@ -266,7 +332,6 @@
     <section id="settings" class="tab-content">
       <div class="tab-title">Settings</div>
       <div class="settings-content">
-        <!-- Appearance Settings -->
         <div class="settings-card">
           <h3>Appearance</h3>
           <div class="setting-option">
@@ -278,7 +343,6 @@
                 <span class="slider"></span>
               </label>
             </div>
-            <!-- King Von Mode Toggle -->
             <div class="setting-item">
               <label for="king-von-mode">Enable/disable King Von Mode</label>
               <label class="switch">
@@ -288,12 +352,10 @@
             </div>
           </div>
         </div>
-
-        <!-- Panic Button Settings -->
         <div class="settings-card">
           <h3>Panic Button</h3>
           <div class="setting-option">
-            <p>Set a panic bind </p>
+            <p>Set a panic bind</p>
             <div class="setting-item">
               <label for="panic-url">Enter URL:</label>
               <input type="text" id="panic-url" placeholder="https://example.com" value="https://youtube.com">
@@ -309,7 +371,6 @@
     </section>
   </main>
 
-  <!-- Include script.js -->
   <script src="script.js"></script>
 </body>
 </html>
